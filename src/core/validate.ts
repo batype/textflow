@@ -67,7 +67,10 @@ export function parseRecipe(raw: unknown): Recipe {
         if (!s.search) throw Error("查找内容不能为空");
         string(s.replacement, "replacement");
         flags(s.flags);
-        if (s.mode === "regex" && /\$(?:`|'|<)/.test(String(s.replacement)))
+        if (
+          s.mode === "regex" &&
+          /\$(?:`|'|<)/.test(String(s.replacement).replace(/\$\$/g, ""))
+        )
           throw Error(
             "正则替换支持 $1…$99、$& 和 $$，不支持上下文或命名组替换",
           );
