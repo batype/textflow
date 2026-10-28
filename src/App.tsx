@@ -464,6 +464,19 @@ export default function App() {
               Node.js 22.14+，无需 React，也不需要 API Key。正则在独立 Worker
               里执行，默认超时 3 秒。
             </p>
+            <p className="warning">
+              npm 公开状态以{" "}
+              <a
+                href="https://github.com/batype/textflow/releases"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Release 页面
+              </a>{" "}
+              为准。若注册表尚未公开，可下载已验证的 tgz 安装包，使用{" "}
+              <code>npm install ./batype-textflow-1.0.0.tgz</code>。以下 npm
+              命令适用于正式发布后。
+            </p>
             <pre
               tabIndex={0}
             >{`npm install @batype/textflow\n\nimport { runRecipe, presetRecipe } from '@batype/textflow';\n\nconst result = await runRecipe(\n  'userId=10001\\nuserId=10002\\nuserId=10001',\n  presetRecipe('ids-json'),\n);\nconsole.log(result.text); // ["10001", "10002"]（带缩进）`}</pre>
