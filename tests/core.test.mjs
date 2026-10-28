@@ -94,7 +94,15 @@ test("literal replacement treats punctuation, backslashes, dollar signs and subs
   }
 });
 test("regex replacement matches native JS numeric captures, whole match, dollars and unmatched groups within the supported subset", async () => {
-  for (const replacement of ["$2/$1", "$$-$&-$1", "$12-$3", "$0-$99"]) {
+  for (const replacement of [
+    "$2/$1",
+    "$$-$&-$1",
+    "$12-$3",
+    "$0-$99",
+    "$$<group>",
+    "$$'",
+    "$$`",
+  ]) {
     const r = await runRecipe(
       "ab ab",
       recipe([
