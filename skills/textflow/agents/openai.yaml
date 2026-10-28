@@ -1,0 +1,4 @@
+interface:
+  display_name: "TextFlow 文本工作台"
+  short_description: "通过本地规则清理列表、提取字段和批量替换文本，生成 JSON、CSV 或 SQL 片段"
+  default_prompt: "Use $textflow to extract user IDs from a local log, deduplicate them, and save a JSON string array while preserving the original file."

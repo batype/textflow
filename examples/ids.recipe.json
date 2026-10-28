@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "steps": [
+    { "type": "extract", "pattern": "userId=(\\d+)", "flags": "g", "group": 1 },
+    { "type": "dedupe" }
+  ],
+  "output": { "format": "json" }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "@batype/textflow",
+  "version": "1.0.0",
+  "description": "Local-first text recipes: extract, clean, deduplicate and export lists in the browser or Node.js.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.14"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/node/index.d.ts",
+      "import": "./lib/node/index.js"
+    }
+  },
+  "bin": {
+    "textflow": "bin/textflow.mjs"
+  },
+  "files": [
+    "lib/",
+    "bin/",
+    "README.md",
+    "LICENSE",
+    "docs/api.md",
+    "examples/",
+    "skills/",
+    "THIRD-PARTY-LICENSES.txt"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4192 --strictPort",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:core": "tsc -p tsconfig.core.json",
+    "build": "npm run typecheck && npm run build:core && vite build",
+    "test": "npm run build:core && node --test tests/*.test.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 4193 --strictPort",
+    "prepack": "npm run build:core"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batype/textflow.git"
+  },
+  "homepage": "https://batype.github.io/textflow/",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "text",
+    "pipeline",
+    "regex",
+    "dedupe",
+    "cli",
+    "developer-tools"
+  ]
+}
